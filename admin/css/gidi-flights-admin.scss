@@ -1,0 +1,37 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+// add a custom icon for the flights and tourism menu
+#toplevel_page_gidi-flights-settings > a > div.wp-menu-image.dashicons-before {
+	&:before {
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 900;
+		content: '\f57e';
+	}
+}
+
+// state a class that houses fontawesome
+.fa-important {
+	font-family: 'Font Awesome 5 Free' !important;
+}
+
+// edit or add new screen bookings
+.passenger_add_div {
+	display: block;
+	float: right;
+	width: auto;
+	height: 36px;
+	margin: 0;
+	padding: 0;
+	background: none;
+	color: #72777c;
+	border: 0;
+	cursor: pointer;
+}
+
+@import './_utitlities';
+@import './_grid';
+@import './single-booking';
+ 

@@ -1,0 +1,159 @@
+@import './../../node_modules/bourbon/core/bourbon';
+@import './../../node_modules/bourbon-neat/core/_neat';
+@import './../../node_modules/breakpoint-sass/stylesheets/_breakpoint';
+
+// configure neat
+$baby-bear: (
+	columns: 9,
+	gutter: 20px,
+	// media: 'screen and (max-width: 999px)'
+);
+$mama-bear: (
+	columns: 12,
+	gutter: 20px
+);
+$papa-bear: (
+	columns: 12,
+	gutter: 20px
+);
+$odd-bear: (
+	columns: 5,
+	gutter: 20px
+);
+$oddeven-bear: (
+	columns: 5,
+	gutter: 20px
+);
+/* --------------------------------------------------------------
+## init the g3-container
+-------------------------------------------------------------- */
+.g3-container {
+	@include grid-container;
+	margin: auto;
+	max-width: 1170px;
+	box-sizing: border-box;
+	@include padding(10px null);
+
+	&.border {
+		border: 1px solid #e5e5e5;
+	}
+
+	.g3-reset-fort {
+		@include grid-collapse($mama-bear);
+		box-sizing: border-box;
+	}
+
+	.g3-hold-fort {
+		clear: both;
+		display: block;
+		overflow: hidden;
+
+		& .padding,
+		&.padding {
+			padding: map-get($mama-bear, 'gutter');
+		}
+
+		box-sizing: border-box;
+	}
+
+	%topBottomSpace {
+		@include padding(8px null);
+		box-sizing: border-box;
+	}
+
+	.g3-full {
+		@include grid-column(12, $mama-bear);
+		@extend %topBottomSpace;
+	}
+
+	.g3-half {
+		@include grid-column(6, $mama-bear);
+		@extend %topBottomSpace;
+	}
+
+	// using thirds
+	.g3-two-third {
+		@include grid-column(8, $mama-bear);
+		@extend %topBottomSpace;
+	}
+
+	.g3-one-third {
+		@include grid-column(4, $mama-bear);
+		@extend %topBottomSpace;
+	}
+
+	// using fourths
+	.g3-one-fourth {
+		@include grid-column(12, $mama-bear);
+		@extend %topBottomSpace;
+		@include breakpoint(501px 728px) {
+			@include grid-column(6, $mama-bear);
+		}
+		@include breakpoint(729px) {
+			@include grid-column(3, $mama-bear);
+		}
+	}
+
+	.g3-two-fourth {
+		@include grid-column(6, $mama-bear);
+		@extend %topBottomSpace;
+		// @include breakpoint(501px 728px) {
+		// @include grid-column(6, $mama-bear);
+		// }
+		// @include breakpoint(729px) {
+		// @include grid-column(3, $mama-bear);
+		// }
+	}
+
+	.g3-three-fourth {
+		@include grid-column(9, $mama-bear);
+		@extend %topBottomSpace;
+	}
+
+	// using fifths
+	.g3-one-fifth {
+		@include grid-column(1, $odd-bear);
+		@extend %topBottomSpace;
+	}
+
+	.g3-two-fifth {
+		@include grid-column(2, $odd-bear);
+		@extend %topBottomSpace;
+	}
+
+	.g3-three-fifth {
+		@include grid-column(3, $odd-bear);
+		@extend %topBottomSpace;
+	}
+
+	.g3-four-fifth {
+		@include grid-column(4, $odd-bear);
+		@extend %topBottomSpace;
+	}
+
+	// using sixth
+	.g3-one-sixth {
+		@include grid-column(1, $odd-bear);
+		@extend %topBottomSpace;
+	}
+
+	.g3-two-sixth {
+		@include grid-column(2, $odd-bear);
+		@extend %topBottomSpace;
+	}
+
+	.g3-three-sixth {
+		@include grid-column(3, $odd-bear);
+		@extend %topBottomSpace;
+	}
+
+	.g3-four-sixth {
+		@include grid-column(4, $odd-bear);
+		@extend %topBottomSpace;
+	}
+
+	.g3-five-sixth {
+		@include grid-column(5, $oddeven-bear);
+		@extend %topBottomSpace;
+	}
+}

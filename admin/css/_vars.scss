@@ -1,0 +1,17 @@
+// base sizes
+$sizes: (
+	xxx-large: 200px,
+	xx-large: 150px,
+	x-large: 100px,
+	large: 50px,
+	medium: 30px,
+	small: 15px,
+	smaller: 5px
+);
+
+// properties we need to have sizes
+$properties: ('margin', 'padding');
+// direction we want
+$directions: ('top', 'left', 'right', 'bottom');
+
+$base_color: #d31f0d;

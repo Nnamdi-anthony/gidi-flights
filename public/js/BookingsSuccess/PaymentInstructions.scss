@@ -1,0 +1,14 @@
+.paymentAdvise {
+	background-color: lighten(#eeeeee, 2%);
+	padding: 20px;
+	margin: -15px -15px 15px;
+	border-bottom: 1px solid #ccc;
+
+	table {
+		border: 1px solid #ccc !important;
+		tr > td:nth-child(odd) {
+			font-weight: bold;
+			width: 50%;
+		}
+	}
+}

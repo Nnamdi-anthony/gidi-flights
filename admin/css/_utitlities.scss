@@ -1,0 +1,186 @@
+@import './vars';
+/* --------------------------------------------------------------
+## borders helpers
+-------------------------------------------------------------- */
+.border {
+	border: 1px solid #e5e5e5;
+}
+/* --------------------------------------------------------------
+## padding and margin helpers
+-------------------------------------------------------------- */
+@each $size_key, $size in $sizes {
+	.#{$size_key} {
+		// spit values for specific sides
+		@each $direction in $directions {
+			&-#{$direction} {
+				@each $property in $properties {
+					&-#{$property} {
+						#{$property}-#{$direction}: $size;
+					}
+
+					@at-root .no-#{$direction}-#{$property} {
+						#{$property}-#{$direction}: 0 !important;
+					}
+				}
+			}
+		}
+
+		// spit values for all sides
+		@each $property in $properties {
+			&-#{$property} {
+				#{$property}: $size;
+			}
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## zero values resetters
+--------------------------------------------------------------*/
+@each $property in $properties {
+	.no-#{$property} {
+		#{$property}: 0 !important;
+
+		&.widefat {
+			#{$property}: 0 !important;
+		}
+	}
+}
+
+// background
+.no-background-color {
+	background-color: transparent !important;
+	&.widefat {
+		background-color: 0 !important;
+	}
+}
+
+.no-box-shadow {
+	box-shadow: none !important;
+	&.widefat {
+		box-shadow: 0 !important;
+	}
+}
+
+.no-border {
+	&.widefat {
+		border: 0 !important;
+	}
+	border: 0;
+}
+
+.no-display {
+	display: none !important;
+}
+
+.no-border-radius {
+	border-radius: 0 !important;
+}
+
+.no-outline {
+	outline: none !important;
+}
+
+.no-background-image {
+	background-image: none !important;
+}
+
+/*--------------------------------------------------------------
+## text helpers
+--------------------------------------------------------------*/
+$positions: ('center', 'right', 'left');
+@each $position in $positions {
+	.set-text-#{$position} {
+		text-align: #{$position} !important;
+	}
+}
+$font_weights: (
+	'bold',
+	'bolder',
+	'100',
+	'200',
+	'300',
+	'400',
+	'500',
+	'600',
+	'700',
+	'800',
+	'900',
+	'lighter',
+	'normal',
+	'inherit'
+);
+@each $font_weight in $font_weights {
+	.set-text-#{$font_weight} {
+		font-weight: #{$font_weight} !important;
+	}
+}
+
+/*--------------------------------------------------------------
+## show utilities
+--------------------------------------------------------------*/
+$displays: (
+	'block',
+	'inline-block',
+	'flex',
+	'inline-flex',
+	'table',
+	'inline-table',
+	'grid'
+);
+@each $display in $displays {
+	.show-as-#{$display} {
+		display: #{$display} !important;
+	}
+}
+
+/*--------------------------------------------------------------
+## show utilities
+--------------------------------------------------------------*/
+$positions: ('absolute', 'relative', 'static');
+@each $position in $positions {
+	.set-position-as-#{$position} {
+		display: #{$position} !important;
+	}
+}
+
+/* --------------------------------------------------------------
+## common floats
+-------------------------------------------------------------- */
+$floats: ('left', 'right');
+@each $float in $floats {
+	.take-#{$float},
+	.take-it-#{$float} {
+		float: #{$float};
+	}
+}
+
+/* --------------------------------------------------------------
+## center items
+-------------------------------------------------------------- */
+.center-item {
+	margin: auto !important;
+}
+/*--------------------------------------------------------------
+## set base color
+--------------------------------------------------------------*/
+
+.set-base-text-color {
+	color: $base_color;
+}
+
+.set-base-bg-color {
+	background-color: $base-color;
+	&.important {
+		background-color: $base-color !important;
+	}
+}
+
+/*--------------------------------------------------------------
+## Make fontawesome
+--------------------------------------------------------------*/
+.make-fontawesome-importo {
+	font-family: 'Font Awesome 5 Free' !important;
+	font-weight: 900 !important;
+	margin-left: 5px;
+}

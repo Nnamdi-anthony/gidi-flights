@@ -1,0 +1,247 @@
+.height-44 {
+	&.form-control {
+		height: 44px;
+	}
+}
+
+.g3-modal-wrapper {
+	z-index: 99999999999999999999;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.95);
+	display: flex;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	transform: scale(1.1);
+	transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+
+	&.g3-show-modal {
+		opacity: 1;
+		visibility: visible;
+		transform: scale(1);
+		transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+	}
+
+	.g3-modal-content {
+		margin-top: -30px; // make position sticky work fine
+		background-color: white;
+		border-radius: 3px;
+		padding: {
+			top: 30px;
+			bottom: 30px;
+		}
+		label,
+		input {
+			color: #333333 !important;
+		}
+		align-self: center;
+		max-width: 90%;
+		max-height: 90%;
+		overflow-wrap: break-word;
+		background-color: white;
+
+		@at-root &-wrapper {
+			max-height: 90%;
+			max-width: 90%;
+			align-self: center;
+			position: relative;
+			min-width: 100px;
+			overflow-x: auto;
+			// overflow: auto;
+			min-height: 100px;
+		}
+
+		@at-root .pickACloseButton {
+			i.fa {
+				color: $base-color;
+			}
+
+			// position: absolute;
+			// top: 0;
+			// right: 0;
+			position: sticky;
+			top: 30px;
+			left: 100%;
+			padding: 16px;
+			color: $base-color;
+			cursor: pointer;
+			box-sizing: initial;
+		}
+	}
+}
+
+// centering things
+.flexxy-top-bottom-center {
+	display: flex !important;
+	align-items: center;
+}
+
+.flexxy-right-left-center {
+	display: flex !important;
+	align-items: center;
+}
+
+.pagrination-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			cursor: pointer;
+			width: 38px;
+			box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24),
+				0 0 2px 0 rgba(0, 0, 0, 0.12);
+			border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+			background-color: white;
+
+			border-radius: 3px;
+			text-align: center;
+			margin-left: 10px;
+			&.active,
+			&.active:hover {
+				background-color: $base-color;
+				color: white;
+			}
+			&:first-of-type {
+				margin-left: 0;
+			}
+			display: inline-block;
+			&:hover,
+			&:focus {
+				color: $base-color;
+				background-color: transparent;
+			}
+		}
+	}
+}
+
+.checky {
+	&-container {
+		display: block;
+		position: relative;
+		padding-left: 28px;
+		margin-bottom: 12px;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+
+		input {
+			position: absolute;
+			opacity: 0;
+			cursor: pointer;
+			height: 0;
+			width: 0;
+		}
+	}
+
+	&-text {
+		position: relative;
+		top: 4px;
+	}
+
+	&-checkmark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 20px;
+		width: 20px;
+		background-color: darken(#eee, 10%);
+
+		&:after {
+			content: '';
+			position: absolute;
+			display: none;
+		}
+	}
+
+	&:hover input ~ &-checkmark {
+		background-color: #ccc;
+	}
+
+	input:checked ~ &-checkmark {
+		background-color: $base-color;
+	}
+
+	input:checked ~ &-checkmark:after {
+		display: block;
+	}
+
+	&-container &-checkmark:after {
+		left: 7px;
+		top: 1px;
+		width: 8px;
+		height: 14px;
+		border: solid white;
+		border-width: 0 3px 3px 0;
+		-webkit-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+}
+
+/*--------------------------------------------------------------
+## timeline
+--------------------------------------------------------------*/
+.airportsTimeline {
+	position: relative;
+	font-weight: bold;
+	width: calc(100% - 76px);
+	.separatorTimeline {
+		position: absolute;
+		top: 8px;
+		left: -2px;
+		height: 40px;
+		border-left: 1px dashed $base_color;
+	}
+
+	%bCommons {
+		position: relative;
+		padding-left: 16px;
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: -8px;
+			top: 4px;
+			width: 13px;
+			height: 13px;
+			border: 2px solid $base_color;
+			border-radius: 100%;
+			background-color: #fff;
+		}
+	}
+
+	.fromTimeline {
+		@extend %bCommons;
+		margin-bottom: 16px;
+
+		span {
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			display: block;
+		}
+	}
+
+	.toTimeline {
+		@extend %bCommons;
+
+		span {
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			display: block;
+		}
+	}
+}

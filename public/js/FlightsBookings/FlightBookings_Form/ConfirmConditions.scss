@@ -1,0 +1,24 @@
+@import './../../../../admin/css/vars';
+
+#continue-label {
+	font-size: inherit;
+	text-transform: inherit;
+
+	.row {
+		display: flex;
+
+		.col-md-1 {
+			display: flex;
+		}
+
+		.col-md-11 {
+			font-size: 13px;
+
+			a:hover,
+			a:focus {
+				color: lighten($base_color, 10%) !important;
+				text-decoration: underline !important;
+			}
+		}
+	}
+}

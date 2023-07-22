@@ -1,0 +1,17 @@
+{
+    "name": "umoke10/gidievents-flights-travels",
+    "require": {
+        "flutterwave/flutterwave-php": "dev-master"
+    },
+    "authors": [{
+        "name": "Peterson Umoke",
+        "email": "umoke10@hotmail.com"
+    }],
+    "autoload": {
+        "classmap": [
+            "admin",
+            "public",
+            "includes"
+        ]
+    }
+}

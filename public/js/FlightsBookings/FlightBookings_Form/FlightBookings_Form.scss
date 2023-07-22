@@ -1,0 +1,32 @@
+.passenger-request-form {
+	%commonStylings {
+		color: darken(#7a7a7a, 10%) !important;
+		font-weight: 500;
+		text-transform: capitalize;
+	}
+
+	select {
+		@extend %commonStylings;
+	}
+
+	.form-control {
+		box-shadow: none !important;
+		font-weight: 400 !important;
+		&::placeholder {
+			@extend %commonStylings;
+		}
+	}
+
+	.breaking-line {
+		border: 1px solid #f7f7f7;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	#gender,
+	#document_type {
+		option {
+			text-transform: capitalize;
+		}
+	}
+}

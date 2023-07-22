@@ -1,0 +1,76 @@
+@import './../../../../admin/css/vars';
+
+.raddy-container {
+	display: inline-block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 15px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	transition: all;
+}
+
+/* Hide the browser's default radio button */
+.raddy-container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	transition: all;
+}
+
+/* Create a custom radio button */
+.raddy-checkmark {
+	position: absolute;
+	top: -3px;
+	left: 0;
+	// height: 25px;
+	height: 20px;
+	// width: 25px;
+	width: 20px;
+	// background-color: #333;
+	border: 2px solid #444;
+	border-radius: 50%;
+	transition: all;
+}
+
+/* On mouse-over, add a grey background color */
+.raddy-container:hover input ~ .raddy-checkmark {
+	background-color: #ccc;
+	transition: all;
+}
+
+/* When the radio button is checked, add a blue background */
+.raddy-container input:checked ~ .raddy-checkmark {
+	background-color: $base_color;
+	border: none;
+	transition: all;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.raddy-checkmark:after {
+	content: '';
+	position: absolute;
+	display: none;
+	transition: all;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.raddy-container input:checked ~ .raddy-checkmark:after {
+	display: block;
+	transition: all;
+}
+
+/* Style the indicator (dot/circle) */
+.raddy-container .raddy-checkmark:after {
+	top: 6px;
+	left: 6px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+	transition: all;
+}

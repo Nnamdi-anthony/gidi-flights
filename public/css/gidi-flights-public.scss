@@ -1,0 +1,388 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+@import './../../admin/css/_vars';
+@import './../../admin/css/grid';
+@import './../../admin/css/utitlities';
+
+/*--------------------------------------------------------------
+## landing page details
+--------------------------------------------------------------*/
+
+.fp-landing-wrapper {
+	// $unique: 1200px;
+	$unique: 100px;
+
+	background-color: #333333;
+	background-size: cover;
+	background-position: center center;
+
+	&.is-bg-image {
+		min-height: 500px;
+	}
+
+	&.is-slider-image {
+		min-height: 400px;
+	}
+
+	margin: {
+		// right: -#{$unique};
+		// left: -#{$unique};
+	}
+	padding: {
+		right: #{$unique};
+		left: #{$unique};
+	}
+
+	h1 {
+		// margin: 0;
+		color: #cccccc;
+	}
+
+	.slider-content-holder {
+		position: absolute;
+		pointer-events: none;
+		@include grid-container();
+
+		.inner-holder-content {
+			position: relative;
+			left: -50%;
+			width: 1140px;
+			margin-top: 40px;
+		}
+
+		top: 0;
+		left: 50%;
+	}
+}
+
+/*--------------------------------------------------------------
+## Tabs on the landing page
+--------------------------------------------------------------*/
+
+#gidi-flights-tab-menu-wrapper.gidi-flights-tabs-structure {
+	ul {
+		li {
+			&:not(:first-of-type) {
+				margin-left: 1px;
+			}
+
+			pointer-events: all;
+			padding: 0 !important;
+
+			&.current-menu-item,
+			&.active {
+				a {
+					color: white;
+					background-color: $base_color !important;
+
+					&:hover {
+						background-color: lighten($base_color, 10%);
+					}
+				}
+			}
+
+			a {
+				color: white;
+				padding: 20px;
+				background-color: rgba(black, 0.5);
+				border: none !important;
+				border-radius: 0px !important;
+				transition: all 0.5s linear;
+				font-weight: bold;
+
+				&:hover,
+				&:focus {
+					color: white;
+					background-color: $base_color;
+				}
+			}
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## public facing uititlites
+--------------------------------------------------------------*/
+@import './_utilities';
+
+/*--------------------------------------------------------------
+## search bar
+--------------------------------------------------------------*/
+.intro-searchbox {
+	margin: {
+		// top: 20px;
+	}
+}
+
+.search-overlay-wrapper {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding-bottom: 15px;
+	pointer-events: all;
+
+	#arrival_date,
+	#departure_date {
+		cursor: pointer;
+	}
+
+	.cmon-button.button {
+		height: 100%;
+		line-height: 44px;
+		border-radius: 4px !important;
+	}
+
+	.choosing-trip-button.btn {
+		border: 0;
+		border-radius: 19px !important;
+		display: inline-block;
+		font-size: 13px;
+		font-weight: 700;
+		height: 38px;
+		line-height: 38px;
+		padding: 0 25px;
+		position: relative;
+		text-align: center;
+		text-decoration: none;
+		// text-shadow: 0 1px 1px rgba(35, 35, 35, 0.2);
+		transition: all 0.2s ease;
+	}
+
+	.primary-fields {
+		label,
+		input,
+		.show-text-white {
+			color: white !important;
+
+			> option {
+				color: #333333;
+			}
+		}
+
+		input::placeholder {
+			color: white !important;
+		}
+
+		.g3-one-fifth {
+			@include breakpoint(501px 810px) {
+				@include grid-column(6, $mama-bear);
+				&:nth-child(5) {
+					@include grid-column(12, $mama-bear);
+				}
+			}
+			@include breakpoint(max-width 500px) {
+				@include grid-column(12, $mama-bear);
+			}
+		}
+
+		@include breakpoint(max-width 640px) {
+			#search_btn {
+				float: none !important;
+			}
+		}
+	}
+
+	#num_of_travellers {
+		cursor: pointer;
+	}
+
+	#num_of_travllers_content {
+		@extend .g3-modal-wrapper;
+
+		#num_of_travellers_content_wrapper {
+			@extend .g3-modal-content;
+			max-width: 30%;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## styling the select2
+--------------------------------------------------------------*/
+$same_values: 44px;
+span.select2.select2-container.select2-container--default {
+	border-radius: 3px;
+	outline: none !important;
+}
+
+.select2-container--default .select2-selection--single {
+	min-height: $same_values;
+	border-radius: none !important;
+	background-color: transparent;
+	border: none !important;
+	outline: none !important;
+}
+
+.select2-container--default
+.select2-selection--single
+.select2-selection__rendered {
+	line-height: $same_values;
+	outline: none !important;
+	// font-weight: normal;
+	color: white;
+}
+
+.select2-container--default
+.select2-selection--single
+.select2-selection__placeholder {
+	color: white;
+}
+
+.select2-container--default
+.select2-selection--single
+.select2-selection__arrow {
+	height: $same_values;
+	outline: none !important;
+}
+
+.select2-container--default
+.select2-results__option--highlighted[aria-selected] {
+	background-color: $base_color;
+	outline: none !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+	outline: none !important;
+}
+
+/*--------------------------------------------------------------
+## Datepicker stylings
+--------------------------------------------------------------*/
+
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year {
+	padding: 0;
+	height: auto;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+/*--------------------------------------------------------------
+## blog listing from the world
+--------------------------------------------------------------*/
+
+.from-the-world {
+	.intro-title {
+		font-size: 2.3em !important;
+		border-bottom: 2px solid $base_color;
+		font-family: 'Source Sans Pro', 'Arial', sans-serif;
+		padding-bottom: 25px;
+	}
+
+	#set-piece {
+		position: relative;
+		top: -15px;
+	}
+
+	.loopy-same-height {
+		min-height: 320px;
+		@include breakpoint(500px 996px) {
+			min-height: 350px;
+			.loopy-description {
+				display: none;
+			}
+		}
+	}
+
+	.samy-loopy-img {
+		min-height: 200px;
+	}
+
+	.loopy-img-with-btn {
+		position: relative;
+	}
+
+	.floating-middle-button {
+		justify-content: center;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		$full: 100%;
+		width: $full;
+		height: $full;
+		background-color: rgba(black, 0.3);
+		opacity: 0.8;
+		transition: all linear 0.3s;
+
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
+
+		.button {
+			align-self: center;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## search page sytlings
+--------------------------------------------------------------*/
+#search-page-form {
+	#num_of_travellers_content_wrapper
+	> div
+	> div:nth-child(3)
+	> div
+	> button
+	> span {
+		color: white !important;
+	}
+
+	margin-bottom: 20px;
+	box-shadow: 0 8px 4px -8px black;
+	background-color: lighten(#cccccc, 5%);
+	background-image: url('https://gidievents.com/movies/wp-content/themes/movies-site/assets/img/pattern.jpg');
+	overflow: hidden;
+
+	.search-overlay-wrapper {
+		// margin-top: -60px;
+		background-color: transparent;
+		padding-bottom: 0;
+		transition: margin cubic-bezier(0.39, 0.575, 0.565, 1) 0.5s;
+
+		&.show-trip-type-anim {
+			margin-top: 0;
+		}
+
+		.primary-fields {
+			input,
+			span,
+			select,
+			label,
+			.show-text-white,
+			input::placeholder {
+				color: #333333 !important;
+			}
+		}
+
+		.select2-container--default
+		.select2-selection--single
+		.select2-selection__rendered {
+			line-height: $same_values;
+			outline: none !important;
+			color: #333333;
+		}
+
+		.select2-container--default
+		.select2-selection--single
+		.select2-selection__placeholder {
+			color: #333333;
+		}
+	}
+
+	$commong: 1500px;
+	padding: {
+		left: $commong;
+		right: $commong;
+	}
+	margin: {
+		left: -#{$commong};
+		right: -#{$commong};
+	}
+}
+
+/*--------------------------------------------------------------
+## ReactJS Search Application
+--------------------------------------------------------------*/
+@import './search_app';
+@import './bookings-app';

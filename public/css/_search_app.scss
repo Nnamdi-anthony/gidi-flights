@@ -1,0 +1,306 @@
+@import './../../admin/css/_vars';
+@import './../../admin/css/grid';
+//@import './../../node_modules/react-time-range-slider/dist/styles.css';
+
+body {
+	background-color: #fafafa !important;
+}
+
+/*--------------------------------------------------------------
+## smaple grid layout
+--------------------------------------------------------------*/
+%outStandingProps {
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+	border-radius: 3px;
+	border-top: 1px solid rgba(0, 0, 0, 0.12);
+	background-color: white;
+}
+
+.g3-aside-bar {
+	@include grid-column(3, $mama-bear);
+	@extend %outStandingProps;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
+	.side-bear-heading {
+		text-transform: capitalize;
+	}
+}
+
+.g3-main-content {
+	@include grid-column(9, $mama-bear);
+}
+
+.loopy-search-results,
+.g3-simple-card {
+	.pointy-cursor {
+		cursor: pointer;
+	}
+
+	$dimmedColor: #a1a1a1;
+
+	%commonThings {
+		text-align: center;
+	}
+
+	.border-lefty {
+		// $color: #e6e6e6;
+		$color: #cccccc;
+		border-left: 1px solid $color;
+	}
+
+	.center-certain-text {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	@extend %outStandingProps;
+	margin: {
+		top: 16px;
+		bottom: 16px;
+	}
+
+	&:first-of-type {
+		margin: {
+			bottom: 16px;
+			top: 0;
+		}
+	}
+
+	background-color: white;
+
+	.marketing-airline-name {
+		font-size: 0.86em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	.smapleFlexxy {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.flexWrapTheElem {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.time {
+		font-size: 1.7em;
+		font-weight: 500;
+		@extend %commonThings;
+	}
+
+	.city {
+		@extend %commonThings;
+		color: $dimmedColor;
+	}
+
+	.straight-borderline {
+		background-color: $dimmedColor;
+		min-height: 2px;
+		$minVal: 8px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: {
+			top: $minVal;
+			bottom: $minVal;
+		}
+	}
+}
+
+#search-sidebar {
+	.g3-hold-fort {
+		border-top: 1px solid #ccc;
+		margin-top: 10px;
+
+		&:first-of-type,
+		&:nth-child(2) {
+			margin-top: 0;
+		}
+
+		&:first-of-type {
+			border-top: none;
+		}
+	}
+}
+
+.flight-modal-heading {
+	font-weight: 600 !important;
+	margin: 0;
+}
+
+.border-lefty {
+	border-left: 1px solid #ccc;
+}
+
+.setContainerFlexxy {
+	.g3-hold-fort {
+		display: flex;
+		// align-items: center;
+	}
+}
+
+.attackdd.g3-one-third {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flight-details-timelines {
+	padding: 16px;
+	padding-bottom: 10px;
+	background-color: #f7f7f7;
+}
+
+.reset-width.g3-full {
+	width: 100%;
+	margin-left: 0;
+}
+
+/*--------------------------------------------------------------
+## Stoping points
+--------------------------------------------------------------*/
+.flight-stop-metadata {
+	border: 1px dashed #cccccc;
+	padding: 8px 0;
+	border-width: 1px 0;
+	margin: 10px 0;
+
+	.flight-stops {
+		position: relative;
+		font-weight: bold;
+		width: calc(100% - 76px);
+
+		.stop_att {
+			color: $base_color;
+			position: relative;
+			padding-left: 16px;
+
+			span {
+				display: block;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				width: 13px;
+				height: 13px;
+				border-radius: 100%;
+				background-color: $base_color;
+				top: 3px;
+				left: -8px;
+				border: 0;
+			}
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## Time range slider
+--------------------------------------------------------------*/
+
+.input-range__slider {
+	background: $base_color !important;
+	border-color: $base_color !important;;
+}
+
+.input-range__track--active {
+	background-color: $base_color !important;;
+}
+
+/*--------------------------------------------------------------
+## Loading Icon
+--------------------------------------------------------------*/
+
+@keyframes spaceboots {
+	0% {
+		transform: translate(2px, 1px) rotate(0deg);
+	}
+	10% {
+		transform: translate(-1px, -2px) rotate(-1deg);
+	}
+	20% {
+		transform: translate(-3px, 0px) rotate(1deg);
+	}
+	30% {
+		transform: translate(0px, 2px) rotate(0deg);
+	}
+	40% {
+		transform: translate(1px, -1px) rotate(1deg);
+	}
+	50% {
+		transform: translate(-1px, 2px) rotate(-1deg);
+	}
+	60% {
+		transform: translate(-3px, 1px) rotate(0deg);
+	}
+	70% {
+		transform: translate(2px, 1px) rotate(-1deg);
+	}
+	80% {
+		transform: translate(-1px, -1px) rotate(1deg);
+	}
+	90% {
+		transform: translate(2px, 2px) rotate(0deg);
+	}
+	100% {
+		transform: translate(1px, -2px) rotate(-1deg);
+	}
+}
+
+@keyframes run {
+	0% {
+		left: 0;
+	}
+	30% {
+		left: -100%;
+	}
+	70% {
+		left: 100%;
+	}
+	100% {
+		left: 0;
+	}
+}
+
+.house-shaking-icon {
+	width: 200px;
+	height: 200px;
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+	border-radius: 100%;
+	border: 2px solid;
+
+	.roticon-small {
+		position: relative;
+		top: 20%;
+	}
+
+	.shaking-icon {
+		animation: spaceboots 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+		transform-origin: 50% 50%;
+		backface-visibility: hidden;
+		text-align: center;
+	}
+
+	.moving-clouds {
+		&:first-child {
+			bottom: -30%;
+			color: #a1a1a1;
+		}
+
+		color: #cccccc;
+		bottom: 15%;
+		position: absolute;
+		animation: run 5s linear infinite alternate;
+	}
+}
